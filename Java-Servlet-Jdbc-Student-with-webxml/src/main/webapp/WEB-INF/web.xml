@@ -19,4 +19,14 @@
 		<servlet-name>welcome</servlet-name>
 		<url-pattern>/displayStudents</url-pattern>
 	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>add</servlet-name>
+		<servlet-class>com.controller.AddStudentServlet</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>add</servlet-name>
+		<url-pattern>/insertStudent</url-pattern>
+	</servlet-mapping>
 </web-app>
