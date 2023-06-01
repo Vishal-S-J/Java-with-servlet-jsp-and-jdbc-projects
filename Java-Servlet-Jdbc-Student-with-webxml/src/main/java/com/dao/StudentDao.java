@@ -9,12 +9,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class StudentDao {
-    private final Connection connection;
-
-    public StudentDao(Connection connection) {
-        this.connection = connection;
-    }
+public record StudentDao(Connection connection) {
 
     public List<Student> displayAll() {
         List<Student> students = new ArrayList<>();

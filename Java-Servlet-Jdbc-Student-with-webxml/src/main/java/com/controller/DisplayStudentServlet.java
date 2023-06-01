@@ -14,7 +14,7 @@ import java.util.List;
 
 public class DisplayStudentServlet extends HttpServlet {
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         resp.setContentType("text/html");
         PrintWriter printWriter =resp.getWriter();
 
