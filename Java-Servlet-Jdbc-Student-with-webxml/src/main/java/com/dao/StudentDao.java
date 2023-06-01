@@ -35,4 +35,27 @@ public record StudentDao(Connection connection) {
         }
         return students;
     }
+
+    public boolean addStudent(Student student) {
+        boolean flag = false;
+        try {
+            String sql = "INSERT INTO STUDENT(S_FNAME, S_LNAME, S_AGE, S_GENDER, S_BRANCH) VALUES (?,?,?,?,?)";
+
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setString(1, student.getS_FNAME());
+            preparedStatement.setString(2, student.getS_LNAME());
+            preparedStatement.setInt(3, student.getS_AGE());
+            preparedStatement.setString(4, student.getS_GENDER());
+            preparedStatement.setString(5, student.getS_BRANCH());
+
+            int i = preparedStatement.executeUpdate();
+
+            if (i == 1) {
+                flag = true;
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return flag;
+    }
 }
