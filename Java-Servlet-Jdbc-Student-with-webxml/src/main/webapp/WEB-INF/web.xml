@@ -37,4 +37,14 @@ xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/n
 		<servlet-name>delete</servlet-name>
 		<url-pattern>/deleteStudent</url-pattern>
 	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>update</servlet-name>
+		<servlet-class>com.controller.UpdateStudentServlet</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>update</servlet-name>
+		<url-pattern>/updateStudent</url-pattern>
+	</servlet-mapping>
 </web-app>
