@@ -2,10 +2,7 @@ package com.dao;
 
 import com.model.Student;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -51,6 +48,23 @@ public record StudentDao(Connection connection) {
             int i = preparedStatement.executeUpdate();
 
             if (i == 1) {
+                flag = true;
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return flag;
+    }
+
+    public boolean deleteStudent(int studentId) {
+        boolean flag = false;
+        try {
+            String sql = "DELETE FROM STUDENT WHERE S_ID = "+studentId;
+            Statement statement = connection.prepareStatement(sql);
+
+            int i = statement.executeUpdate(sql);
+
+            if(i == 1) {
                 flag = true;
             }
         } catch (SQLException e) {
